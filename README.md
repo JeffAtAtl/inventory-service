@@ -4,10 +4,10 @@ Cloud Service Programming Exercise – Inventory Service
 Design and implement a simple service for managing product inventory.  The service will be able to get and update inventory counts for specific products at specific stores/locations.
 Products are identified by a unique SKU (ID), and will contain counts of that product at different stores. Each store will be uniquely identified by a store number. For example, here is a sample table defining product inventory information:
  
-SKU|Name|Store|Count
-123|iPhone 7 32GB|900|5
-234|iPhone 7 Plus 32 GB|900|2
-123|iPhone 7 32GB|900|4
+|SKU|Name|Store|Count|
+|123|iPhone 7 32GB|900|5|
+|234|iPhone 7 Plus 32 GB|900|2|
+|123|iPhone 7 32GB|900|4|
  
 Functional Requirements:
 
