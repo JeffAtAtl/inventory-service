@@ -24,3 +24,19 @@ Non-Functional Requirements:
  - Although Java is preferred, the choice of language and frameworks is at the discretion of the developer.  Ideally, the application will run as a simple process/executable, and not require an external container or web server to run.
  - Projects can be submitted to us either via a zip/tarball containing all source, or alternatively, a link to an available GitHub, Bitbucket, or similar repository.
  
+# Implementation
+
+I used Spring boot SPRING INITIALIZR (http://start.spring.io/) to create a Spring Boot Gradle project with JPA, H2, HATEOAS and REST Docs.
+
+I took the project and imported it into Eclipse (Mars with Gradle plugin) 
+
+I started with an example at https://spring.io/guides/tutorials/bookmarks/ making changes to fulfill your requirements.
+
+Service can be built and tested by running:
+
+gradlew build
+
+and run by running:
+
+gradlew bootRun
+ 
