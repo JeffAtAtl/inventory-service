@@ -78,6 +78,12 @@ public class InventoryServiceApplicationTests {
         this.sku = skuRepository.save(new Sku("123", "iPhone 7 32GB"));
         this.storeList.add(storeRepository.save(new Store(sku, "900", 5)));
         this.storeList.add(storeRepository.save(new Store(sku, "901", 2)));
+        
+        System.out.println(json(sku));
+        System.out.println(json(storeList.get(0)));
+        System.out.println(json(storeList.get(1)));
+        
+        System.out.println(mockMvc.perform(get("/" + sku + "/stores/" + this.storeList.get(0).getId())));
     }
 
     @Test
@@ -90,7 +96,7 @@ public class InventoryServiceApplicationTests {
 
     @Test
     public void readSinglestore() throws Exception {
-        mockMvc.perform(get("/" + sku + "/stores/"
+        mockMvc.perform(get("/" + sku.getSku() + "/stores/"
                 + this.storeList.get(0).getId()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
@@ -101,7 +107,7 @@ public class InventoryServiceApplicationTests {
 
     @Test
     public void readStores() throws Exception {
-        mockMvc.perform(get("/" + sku + "/stores"))
+        mockMvc.perform(get("/" + sku.getSku() + "/stores"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$", hasSize(2)))
@@ -117,7 +123,7 @@ public class InventoryServiceApplicationTests {
     public void createStore() throws Exception {
         String storeJson = json(new Store(this.sku, "902", 3));
 
-        this.mockMvc.perform(post("/" + sku + "/stores/")
+        this.mockMvc.perform(post("/" + sku.getSku() + "/stores/")
                 .contentType(contentType)
                 .content(storeJson))
                 .andExpect(status().isCreated());

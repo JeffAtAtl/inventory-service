@@ -16,14 +16,13 @@ public class InventoryServiceApplication {
 
 	@Bean
 	CommandLineRunner init(SkuRepository skuRepository,
-			                   StoreRepository storeRepository) {
+			               StoreRepository storeRepository) {
 		return (evt) -> Arrays.asList(
 				"123:iPhone 7 32GB,234:iPhone 7 Plus 32 GB".split(","))
-				.forEach(
-						a -> {
+				.forEach( a -> {
 							String[] skuArry = a.split(":");
 							Sku sku = skuRepository.save(new Sku(skuArry[0],skuArry[1]));
-              if (skuArry[0].equals("123")) {
+                            if (skuArry[0].equals("123")) {
 								storeRepository.save(new Store(sku,"900",5));
 							} else {
 								storeRepository.save(new Store(sku,"900",2));

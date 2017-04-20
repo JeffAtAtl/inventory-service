@@ -22,7 +22,7 @@ class InventoryRestController {
 
 	@Autowired
 	InventoryRestController(StoreRepository storeRepository,
-						             SkuRepository skuRepository) {
+						    SkuRepository skuRepository) {
 		this.storeRepository = storeRepository;
 		this.skuRepository = skuRepository;
 	}
@@ -30,7 +30,7 @@ class InventoryRestController {
 	@RequestMapping(method = RequestMethod.GET)
 	Collection<Store> readStores(@PathVariable String sku) {
 		this.validateSku(sku);
-		return this.storeRepository.findBySku(sku);
+		return this.storeRepository.findBySkuSku(sku);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
