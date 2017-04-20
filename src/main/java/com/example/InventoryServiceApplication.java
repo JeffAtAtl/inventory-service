@@ -24,6 +24,7 @@ public class InventoryServiceApplication {
 							Sku sku = skuRepository.save(new Sku(skuArry[0],skuArry[1]));
                             if (skuArry[0].equals("123")) {
 								storeRepository.save(new Store(sku,"900",5));
+								storeRepository.save(new Store(sku,"901",3));
 							} else {
 								storeRepository.save(new Store(sku,"900",2));
 							}
