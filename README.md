@@ -39,4 +39,20 @@ gradlew build
 and run by running:
 
 gradlew bootRun
+
+## API Documentation
+
+/skus - Get all Skus (Sku/Description)
+
+/skus - Post new Sku (Sku/Description)
+
+/skus/{sku}/stores - Get inventory for Sku at all stores.
+
+/skus/{sku}/stores/{storeId} - Get inventory for Sku at specific store.
+
+/skus/{sku}/stores/{storeId} - Put new inventory (storeNo/count) for Sku at specific store.
+
+/sku/{sku}/stores/ - Post new store inventory (storeNo/count) to existing sku.
+
+
  

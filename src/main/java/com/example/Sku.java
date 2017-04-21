@@ -13,16 +13,20 @@ import javax.persistence.OneToMany;
 @Entity
 public class Sku {
 
-  @OneToMany(mappedBy = "sku")
-  private Set<Store> stores = new HashSet<>();
+  //@OneToMany(mappedBy = "sku")
+  //private Set<Store> stores = new HashSet<>();
 
   @Id
   @GeneratedValue
-  private Long id;
+  public Long id;
+  
+  public Long getId() {
+		return id;
+	}
 
-  public Set<Store> getStores() {
-    return stores;
-  }
+  //public Set<Store> getStores() {
+  //  return stores;
+  //}
 
   public String getSku() {
     return sku;
@@ -32,7 +36,6 @@ public class Sku {
     return description;
   }
 
-  @JsonIgnore
   public String sku;
   public String description;
 
@@ -43,4 +46,5 @@ public class Sku {
 
   Sku() { // jpa only
   }
+
 }
